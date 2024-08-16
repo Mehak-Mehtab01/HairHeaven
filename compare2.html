@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="indexstyle.css">
+<style>
+    #my_img{
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+    }
+    body {
+        position: relative;
+        background: url('background imge.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: -1; /* Ensure the overlay stays behind the content */
+    }
+    .image {
+        margin-top: 90px;
+        width: 40%;
+        margin-left: 20px;
+    }
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right:10%;
+        background-color: #faeccb;
+        padding: 10px;
+        border-radius: 5px;
+        min-width: 200px;
+        z-index: 1000; 
+    }
+    .dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: rgb(99, 0, 0);
+        text-decoration: none;
+    }
+    .dropdown a:hover {
+        background-color:#ECCA9C;
+    }
+    .navbar-right li:hover .dropdown {
+        display: block;
+    }
+    .dropdown-menu {
+        position: absolute;
+        left:96%;
+        top: 0;
+        display: none;
+        background-color: #faeccb;
+        min-width: 200px;
+        border-radius: 5px;
+        z-index: 1001; 
+    }
+    .dropdown-item:hover .dropdown-menu {
+        display: block;
+    }
+    .navbar {
+        background-color: #fff;
+        padding: 15px;
+    }
+  
+ 
+    
+</style>
+</head>
+<body>
+    <nav class="navbar" style="width: 100%;">
+        <div class="navbar-left">
+            <a href="#" class="navbar-brand">HAIRHEAVEN</a>
+        </div>
+        <div class="navbar-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <span class="search-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="list">
+                    <a href="INDEX.HTML">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="gallery.html">
+                        <span class="icon">
+                            <ion-icon name="images-outline"></ion-icon>
+                        </span>
+                        <span class="text">Gallery</span>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <a href="equipments.html">Hair Care Equipment</a>
+                            <div class="dropdown-menu">
+                                <a href="#final-dryer">Hair Dryers</a>
+                                <a href="#final-strai">Straighteners</a>
+                                <a href="#final-curler">Curling Irons</a>
+                                <a href="#final-clipper">Clippers</a>
+                                <a href="#final-brush">Hair Brushes</a>
+                                <a href="#final-scren">Scrunchies</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="product.html">Hair Care Products</a>
+                            <div class="dropdown-menu">
+                                <a href="#final-shampoo">Shampoos</a>
+                                <a href="#final-condition">Conditioners</a>
+                                <a href="#final-oil">Hair Oils</a>
+                                <a href="#final-mask">Hair Masks</a>
+                                <a href="#final-serum">Hair Serums</a>
+                                <a href="#final-spray">Hair Sprays</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <a href="About us.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="text">About Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="text">Contact Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="blog.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="text">Blog</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                        </span>
+                        <span class="text">Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row" style="margin-top: 130px;">
+            <div class="col-sm-6">
+                <select class="form-select" aria-label="Default select example" id="sel_1" onclick="item1(this.value)">
+                    <option selected>Select Products</option>
+                    
+                  </select>
+            </div>
+            <div class="col-sm-6">
+                <select class="form-select" aria-label="Default select example" id="sel_2" onclick="item2(this.value)">
+                    <option selected>Select Products</option>
+                    
+                  </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="no image available.jpeg" alt="" srcset="" class="img-fluid mt-3" id="my_img1">
+            
+                <h3 style="color: rgb(141, 75, 31); margin-top: 30px; font-size: 25px;" id="name1"></h3>
+                <h5 style="color:#a76816; margin-top: 10px; font-size: 19px;"  id="detail1"></h5>
+                <br>
+                <h5 style="color: #a76816; font-size: 19px;" id="description1"></h5>
+                <br>
+                <b><h3 style="color:rgb(141, 75, 31); font-size: 24px;"  id="price1"></h3></b>
+                <h5 id="category1"></h5>
+            </div>
+            <div class="col-sm-6">
+                <img src="no image available.jpeg" alt="" srcset="" class="img-fluid mt-3" id="my_img2">
+                <h3 id="name2"  style="color: rgb(141, 75, 31); margin-top: 30px; font-size: 25px;"></h3>
+                <h5 id="detail2" style="color:#a76816; margin-top: 10px; font-size: 19px;"  id="detail1"></h5>
+                <br>
+                <h5 id="description2" style="color: #a76816; font-size: 19px;"></h5>
+                <br>
+                <b><h3 id="price2" style="color:rgb(141, 75, 31); font-size: 24px;" ></h3></b>
+                <h5 id="category2"></h5>
+            </div>
+        </div>
+    </div>
+
+<script src="compare2.js"></script>
+<script>
+    for(var i=1 ; i<= product.length ; i= i+1){
+        document.getElementById('sel_1').innerHTML += `
+        <option value='${i}'>${product[i].name}</option>`
+
+
+
+        document.getElementById('sel_2').innerHTML += `
+        <option value='${i}'>${product[i].name}</option>`
+    }
+    function item1(a){
+
+        var select2 = document.getElementById('sel_2').value; 
+
+        if(a!=select2){
+            document.getElementById('my_img1').src = `${product[a].image}`;
+            document.getElementById('name1').innerHTML = `${product[a].name}`;
+            document.getElementById('detail1').innerHTML = `${product[a].detail}`;
+            document.getElementById('price1').innerHTML = `${product[a].price}`;
+            document.getElementById('description1').innerHTML = `${product[a].description}`;
+            document.getElementById('brand1').innerHTML = `${product[a].brand}`;
+        }
+        else{
+            document.getElementById('my_img1').src = `${product[0].image}`;
+            document.getElementById('name1').innerHTML = `${product[0].name}`;
+            document.getElementById('detail1').innerHTML = `${product[0].detail}`;
+            document.getElementById('price1').innerHTML = `${product[0].price}`;
+            document.getElementById('description1').innerHTML = `${product[0].description}`;
+            document.getElementById('brand1').innerHTML = `${product[0].brand}`;
+        }
+
+
+
+    }
+    function item2(a){
+
+        var select1 = document.getElementById('sel_1').value; 
+
+        if(a!=select1){
+            document.getElementById('my_img2').src = `${product[a].image}`;
+            document.getElementById('name2').innerHTML = `${product[a].name}`;
+            document.getElementById('detail2').innerHTML = `${product[a].detail}`;
+            document.getElementById('price2').innerHTML = `${product[a].price}`;
+            document.getElementById('description2').innerHTML = `${product[a].description}`;
+            document.getElementById('brand2').innerHTML = `${product[a].brand}`;
+        }
+        else{
+            document.getElementById('my_img2').src = `${product[0].image}`;
+            document.getElementById('name2').innerHTML = `${product[0].name}`;
+            document.getElementById('detail2').innerHTML = `${product[0].detail}`;
+            document.getElementById('price2').innerHTML = `${product[0].price}`;
+            document.getElementById('description2').innerHTML = `${product[0].description}`;
+            document.getElementById('brand2').innerHTML = `${product[0].brand}`;
+        }
+
+
+
+    }
+</script>
+
+</body>
+</html>

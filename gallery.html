@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Heaven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="indexstyle.css">
+    <style>
+        
+
+        body {
+    position: relative;
+    background: url('background imge.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: -1; /* Ensure the overlay stays behind the content */
+}
+        .image {
+            margin-top: 90px;
+            width: 40%;
+            margin-left: 20px;
+           
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right:10%;
+            background-color: #faeccb;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 200px;
+            z-index: 1000; 
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            color: rgb(99, 0, 0);
+            text-decoration: none;
+        }
+        .dropdown a:hover {
+            background-color:#ECCA9C;
+        }
+        .navbar-right li:hover .dropdown {
+            display: block;
+        }
+        .dropdown-menu {
+            position: absolute;
+            left:96%;
+            top: 0;
+            display: none;
+            background-color: #faeccb;
+            min-width: 200px;
+            border-radius: 5px;
+            z-index: 1001; 
+        }
+        .dropdown-item:hover .dropdown-menu {
+            display: block;
+        }
+    
+
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 30px; /* Space between cards */
+    padding: 10px;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    justify-content: center; /* Center the cards */
+    margin-top: 30px;
+    gap: 70px;
+}
+
+.container .card {
+    position: relative;
+    width: 230px; /* Set a fixed width for each card */
+    height: 320px;
+    background: #fff;
+    transition: 0.5s;
+    flex: none; /* Prevent cards from shrinking */
+    display: flex;
+    justify-content: center;
+    border: 0.3px solid rgb(204, 102, 34);
+    border-radius: 12px;
+   
+}
+
+.container .card:hover {
+    height: 400px;
+}
+
+.container .card .imgBX {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    top: 20px;
+    border-radius: 2px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.container .card:hover .imgBX {
+    top: -100px;
+    transform: scale(0.75);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.container .card .imgBX img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .Content {
+    position: absolute;
+    top: 240px;
+    width: 100%;
+    padding: 0 20px;
+    height: 110px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.container .card:hover .Content {
+    top: 130px;
+    height: 350px;
+}
+
+.container .card .Content .details {
+    margin-bottom: 10px;
+}
+
+.container .card .Content .company-name {
+    
+    font-weight: 500;
+    
+    display: block;
+}
+
+.container .card .Content h2 {
+    font-size: 18px;
+    /* font-weight: 600; */
+    color:#d69137;
+    margin: 5px 0;
+}
+
+.container .card .Content p {
+    font-size: 0.9em;
+}
+
+.container .card .Content a {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: rgb(141, 75, 31);
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #673606;
+    color: #ffffff;
+    padding: 20px 0; /* Reduced padding */
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 200px; /* Adjusted height to auto */
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 200px; /* Adjusted min-width */
+    margin: 5px; /* Reduced margin */
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3 {
+    margin-bottom: 15px; /* Reduced margin */
+    font-weight: 700;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #e19e5b;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #d9534f;
+}
+
+.footer-contact a {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.footer-social {
+   
+    gap: 10px; /* Adjusted gap */
+}
+
+.social-icon {
+    color: #c68432;
+    font-size: 20px; /* Reduced font size */
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #d9534f;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px; /* Reduced padding */
+    background-color: #ab7b38;
+    margin-top: 30px; /* Adjusted margin */
+    font-size: 12px; /* Reduced font size */
+}
+
+.footer-links li {
+    padding: 0;
+}
+
+
+
+
+
+    </style>
+</head>
+<body class="body">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#" class="navbar-brand">HAIRHEAVEN</a>
+        </div>
+        <div class="navbar-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <span class="search-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="list">
+                    <a href="INDEX.HTML">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="gallery.html">
+                        <span class="icon">
+                            <ion-icon name="images-outline"></ion-icon>
+                        </span>
+                        <span class="text">Gallery</span>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <div class="dropdown-item">
+                                <a href="equipments.html">Hair Care Equipment</a>
+                                <div class="dropdown-menu">
+                                    <a href="#final-dryer">Hair Dryers</a>
+                                    <a href="#final-strai">Straighteners</a>
+                                    <a href="#final-curler">Curling Irons</a>
+                                    <a href="#final-clipper">Clippers</a>
+                                    <a href="#final-brush">Hair Brushes</a>
+                                    <a href="#final-scren">Scrunchies</a>
+                                </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="product.html">Hair Care Products</a>
+                            <div class="dropdown-menu">
+                                <a href="#final-shampoo">Shampoos</a>
+                                <a href="#final-condition">Conditioners</a>
+                                <a href="#final-oil">Hair Oils</a>
+                                <a href="#final-mask">Hair Masks</a>
+                                <a href="#final-serum">Hair Serums</a>
+                                <a href="#final-spray">Hair Sprays</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <a href="About us.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="text">About Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="CONTACT.HTML">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="text">Contact Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="blog.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="text">Blog</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="LOGIN.HTML">
+                        <span class="icon">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                        </span>
+                        <span class="text">Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+ 
+   
+    <img src="final_mm-transformed Fnal.jpg"  style="margin-top: 90px; width: 100%; position: relative; ">
+  
+   
+    <!-- <img src="google gallery images2.jpg"  style=" width: 100%; position: relative; ">
+     <img src="google gallery images1.jpg" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="margin-top: 90px; width: 100%; "> -->
+     <div class="container"  id="final-dryer">
+        <div class="card">
+            <div class="imgBX">
+                <img src="Dryer (4).jpeg" alt="White Dryer">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Solano Turbo Ultralite Professional Hair Dryer</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 19,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Solano Turbo Ultralite Professional Hair Dryer. Lightweight dc engine for less weight while styling. Ergonomic handle for better hand health.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="dryer (2).jpeg" alt="Black Dryer">PKR 24,000
+            </div>
+                <div class="Content">
+                    <div class="details">
+                        <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Quick Blowout Folding <br> Handle  Hair Dryer</h2>
+                        
+                        <h2 style="margin-top: 14px;" >PKR 34,999</h2>
+                    </div>
+                    <p style="text-align: justify; padding: 15px;"> Helps reduce damage over-styling with even heat distribution making styling fast and easy
+                         Gives you the power to create a salon-styled finish. </p>
+                    <a href="LOGIN.HTML">Buy Now</a>
+               
+            </div>
+          
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="Dryer (3).jpeg" alt="Professional Hair Dryer">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'ANGE HAIR Soleil <br> Professional Hair Dryer </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 29,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">. Le Compact features far-infrared heat and negative ion technologies to gently and efficiently dry your hair . Professional Hair Dryer</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="Dryer3 (2).jpeg" alt="Compact Hair Dryer">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 19px; color: rgb(134, 57, 5); text-align: center; " >T3 AireLuxe Professional <br> Hair Dryer - T3 </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 24,000</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">The T3 Featherweight Compact Folding Hair Dryer is an easily portable hair dryer that has all the features of a full-size dryer</p>
+                <a href="LOGIN.HTML" style="margin-bottom: 7px;">Buy Now</a>
+            </div>
+           
+        </div>
+    </div>
+    
+    <div class="container"  id="final-strai">
+        <div class="card">
+            <div class="imgBX">
+                <img src="strai1 (1).jpeg" alt="Straightener Model 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 19px; color: rgb(134, 57, 5); text-align: center; " >BaByliss Pro  Ceramic 2" Straightening Iron</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 15,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">The BaByliss Porcelain Ceramic 2" Flat Iron is designed to evenly distribute heat through wider sections of hair.</p>
+                <a href="LOGIN.HTML" style="margin-bottom: 7px;">Buy Now</a>
+            </div>
+           
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="strai1 (3).jpeg" alt="Straightener Model 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 19px; color: rgb(134, 57, 5); text-align: center; " >VODANA Professional <br> Flat Iron Straightener </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 18,499</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">our flat iron is the magic wand for your hair's every whim. With intuitive design and versatile heat settings</p>
+                <a href="LOGIN.HTML" style="margin-bottom: 7px;">Buy Now</a>
+            </div>
+            
+           
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="strai1 (2).jpeg" alt="Straightener Model 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 19px; color: rgb(134, 57, 5); text-align: center; " >FoxyBae Titanium <br> Flat Iron</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 21,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Titanium straightener flat iron can heat up faster than ceramic flat iron, as it holds a high heat at a consistent temperature.</p>
+                <a href="LOGIN.HTML" style="margin-bottom: 7px;">Buy Now</a>
+            </div>
+            
+           
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="strai1 (4).jpeg" alt="Straightener Model 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 19px; color: rgb(134, 57, 5); text-align: center; " >L'ANGE HAIR  Ceramic  <br> Iron Hair Straightener</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 25,499</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Tourmaline-infused ceramic flat iron – Rock hair that’s sleek, smooth, and moisturized with ceramic plates infused with tourmaline. </p>
+                <a href="LOGIN.HTML" style="margin-bottom: 7px;">Buy Now</a>
+            </div>
+            
+           
+        </div>
+    </div>
+    <div class="container" id="final-curler">
+        <div class="card">
+            <div class="imgBX">
+                <img src="curler1.jpeg" alt="Curler Model 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Beachwaver B1 Rotating  <br>Curling Iron</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 7,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">The Clamp and Curl is the perfect on the go tool. With both curling and straightening capabilities, you will be obsessed immediately. </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="curler2 (1).jpeg" alt="Curler Model 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Double Ceramic Travel <br> Curling Iron</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 9,499</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Discover great products at the best prices at Dealmoon. Double Ceramic Travel Size 1.25" Spring Curling Iron, Gold.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="curler2 (2).jpeg" alt="Curler Model 3">PKR 10,999
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'ANGE HAIR  Ceramic  <br> Iron Hair Curler</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 19,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">>Tourmaline-infused ceramic flat iron – Rock hair that’s sleek, smooth, and moisturized with ceramic plates infused with tourmaline.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="curler.jpeg" alt="Curler Model 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);"> CHOPSTICK STYLER Heroine <br> Professional Curling</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 19,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">CHOPSTICK STYLER Heroine Professional Curling Wand Lasting Chopstick Curls - Curler for Long & Short Hair</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" id="final-clipper">
+        <div class="card">
+            <div class="imgBX">
+                <img src="clipper (4).jpeg" alt="Clipper Model 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Butterfly Shape <br> Women Hair Claw</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 400</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Plastic Type : Hair Claws Pattern Type : Solid Gender Clip Hair Accessories Headwear 13CM Purple</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="clipper (2).jpeg" alt="Clipper Model 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">hair pins and <br> hair clips</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 800</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Explore hair pins and hair clips at Anthropologie, from everyday classics to one-of-a-kind styles.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="clipper.jpeg" alt="Clipper Model 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">8pcs Small Claw <br> Hair  Clips </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,200</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">8pcs Small Claw Clips For Hin Hair Strong Hold Ponytail Holder Clip Elegant Hair Accessories Headwear</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="clipper6.jpeg" alt="Clipper Model 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">6 PCS Simple <br> Hair Clips</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,500</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">6 PCS Simple No Bend Hair Clips  Acrylic Hair Barrettes For Vintage Hairpin Hair</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+       </div>
+       <div class="container" id="final-brush">
+        <div class="card">
+            <div class="imgBX">
+                <img src="brush.jpeg" alt="Brush Model 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Tangle Teezer  Ultimate  <br>Detangler Hairbrush</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 900</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Tangle Teezer The Large Ultimate Detangler Hairbrush - Thick to Wavy Hair</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="brush1.jpeg" alt="Brush Model 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Foxy bae  <br>blowout brush</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 2,200</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Hair Dryer Brush with Salon Grade AC Motor helps provide effortless professional blowouts without all the fuss.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="brush2.jpeg" alt="Brush Model 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Solid Vented  <br>Hair Brush</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,500</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Solid Vented Hair Brush professional blowouts without all the fuss.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="brush3jpeg.jpg" alt="Brush Model 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Denman D3 Original <br> Styling Brush</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,800</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">The Denman D3 is the ultimate multi-functional hairbrush for detangling blow-drying, styling </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-scren">
+        <div class="card">
+            <div class="imgBX">
+                <img src="scrunchies.jpeg" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Black Satin <br> scrunchies</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 200</h2>
+                </div>
+                <p style="text-align: center; padding: 15px;"> Black Satin Scrunchies  <br>Brand: Alaya</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair band.jpeg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Soighxzc Wide  <br>Elastic Headbands</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 299</h2>
+                </div>
+                <p style="text-align: center; padding: 15px;">soighxzc Wide Elastic Fashion Headbands</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="scrun1.jpeg" alt="Image 4">
+                
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Brown Satin <br> scrunchies</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 200</h2>
+                    <p style="text-align: center; padding: 15px;"> Brown Satin Scrunchies <br> Brand: Alaya</p>
+                    <a href="LOGIN.HTML">Buy Now</a>
+                </div>
+              
+            </div>
+        </div>
+            <div class="card">
+                <div class="imgBX">
+                    <img src="hair band1.jpeg" alt="Image 3">
+                </div>
+                <div class="Content">
+                    <div class="details">
+                        <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Shoprox Spa <br> Headband</h2>
+                        
+                        <h2 style="margin-top: 14px;" >PKR 399</h2>
+                    </div>
+                    <p style="text-align: justify; padding: 15px;">Shoprox Spa Headband,Headband for Washing Face, Skincare Headbands Everytype of Head</p>
+                    <a href="LOGIN.HTML">Buy Now</a>
+                </div>
+            
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="container" id="final-shampoo">
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (1).jpeg" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Shampoo for Longer <br> Stronger Hair</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,499</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Solano Turbo Ultralite Professional Hair Dryer. Lightweight dc engine for less weight while styling. Ergonomic handle for better hand health.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (4).jpg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Kérastase Gentle  <br>Strengthening Shampoo </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,699</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Gentle Strengthening & Anti-Breakage Conditioner, For Damaged Lengths & Ends, With Vita-Ciment Advance, Ciment Anti-Usure,</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (2).jpg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'oreal Paris Elvive  <br>Dream Lengths Shampoo </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,299</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">L'oreal Paris Elvive Dream Lengths Shampoo  12.6 Fl Oz Each L'oreal Paris Elvive Dream Lengths Shampoo 12.6 Fl Oz Each New.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (3).jpeg" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Sunsilk Long And <br> Healthy Growth Shampoo</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,599</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Infused with biotin, a known hair growth vitamin that helps grow hair amazingly long upto 1. 3cm per month </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-condition">
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditionar1 (1)" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);"> Conditioner for Longer <br> Stronger Hair</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,399</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Use Conditioner if you want to supercharge your hair growth for maximum length in minimal time. </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditionar1 (2).jpg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Pantene Repair Protect  <br>Hair Conditioner</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,899</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Pantene Repair & Protect Hair Conditioner 350ml Pantene Repair Protect Hair Conditioner 350Ml Available At Superdrug Today</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditioner 4.avif" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'oreal Paris Elvive  <br>Dream Lengths Conditionar </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,599</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">L'oreal Paris Elvive Dream Lengths Conditioner 12.6 Fl Oz Each L'oreal Paris Elvive Dream Lengths Conditioner 12.6 Fl Oz Each New.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditionar1 (3).jpeg" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Sunsilk Long And <br> Healthy Growth Conditionar</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1.990</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Infused with biotin, a known hair growth vitamin that helps grow hair amazingly long upto 1. 3cm per month </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-oil">
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair oil image.webp" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Gisou Honey Infused  <br>Hair Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> This multipurpose product works for pre-styling and finishing, as a hair mask or an overnight treatment –</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="oil hair.jpg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Mielle <br> Hair Strengthening Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,199</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Our nutrient-rich, biotin-infused treatment can be used as part of your everyday hair care routine  prevent damage for strong</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="oil hair 2.jpg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">honey Deep Moist  <br>Hair Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,699</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">&honey Deep Moist Hair Oil Step3.0 (Moist Shine) 100ml - Damask Rose Honey Sent (Green Tea Set) : Beauty & Personal Care</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair mask 1 (4).webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Vatika Almond Enriched <br> Hair Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,199</h2>
+                </div>
+                <p style="text-align: center; padding: 15px;">Dabur Vatika Almond Enriched Hair Oil 200ml | Multivitamis+ - Pack Of 2</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-mask">
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair mask 1 (4).jpeg" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'Oreal Elvive Dream <br> Lengths Hair Mask </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 2,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">rescue locks that feel damaged with our saviour hair mask. Enriched with a cocktail of Keratin, Vitamins and Castor Oil.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="mehak.webp" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Mielle Organics Strength <br> Growth  Hair Mask</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,899</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Cruelty-free- Mielle Organics is a black owned hair care and beauty brand that creates healthy pro</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="mehak mask.webp" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Natural Riches <br>Keratin Hair Mask </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,699</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Natural Riches Keratin hair mask is a deep conditioning pack, formulated with natural and nourishing keratin. It works to restore  your hair</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="mask hair.webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Eazicare Transforming <br> Hair Mask</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 2,399</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Mask-Querade Transforming Hair Mask hair treatment that restores and rejuvenates dehydrated and damaged hair. </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-serum">
+        <div class="card">
+            <div class="imgBX">
+                <img src="serum.webp" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Hydrating scalp <br>Hair Serum </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">lightweight serum that hydrates your hair + scalp. Infused with Hyaluronic Acid and Glycolic Acid,</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair serum1 (1).jpeg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">divi Hair <br>Scalp Serum</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,299</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Divi’s hair serum is formulated to create a healthy scalp environment for your hair's natural growth cycle.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="serum1.jpg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'oreal Paris Oil  <br>Hair Serum</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,899</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">L'oreal Paris Extraordinary Oil Hair Serum  Apply evenly through the lengths and ends on wet or dry hair. VERSATILE USE-</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="serum2.webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Genesis Anti-Breakage <br> Hair Serum</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Daily anti-hair-fall fortifying serum for weakened hair, prone to falling. The serum improves hair resistance to minimize hair-fall </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-spray">
+        <div class="card" id="spray1">
+            <div class="imgBX">
+                <img src="hair spray1 (1).jpeg" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);"> Essential Hair <br> Repair Spray </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,299</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">water-based botanical styler for all types of textured hair with hydrating and protective powers.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="spray.webp" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Tresemme Heat Defence <br> Hair Spray</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,599</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Tresemme Care & Protect Heat Defence Spray is designed to help protect against damage from harsh temperatures </p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="spray2.jpeg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Amika Brooklyn Bombshell <br>Hair Spray</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Amika Brooklyn Bombshell Blowout Spray. Lightweight mist adds volume, texture & body without buildup or crunchiness.</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="spray7.webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Glow Shine <br> Hair Spray</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,399</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Glow Shine Protect Heat Defence Spray is designed to help protect against damage from harsh temperatures</p>
+                <a href="LOGIN.HTML">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Hair Heaven is dedicated to providing you with the best haircare products and solutions. Our mission is to help you achieve healthy and beautiful hair with our top-rated natural products.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="INDEX.HTML">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="LOGIN.HTML">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@hairheaven.com">info@hairheaven.com</a></p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Haircare Lane, Beauty City, BC 12345</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#" class="social-icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hair Heaven. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

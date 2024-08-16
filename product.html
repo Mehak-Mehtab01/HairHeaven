@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Heaven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="indexstyle.css">
+    <style>
+         body {
+    position: relative;
+    background: url('background imge.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: -1; /* Ensure the overlay stays behind the content */
+}
+        .image {
+            margin-top: 90px;
+            width: 40%;
+            margin-left: 20px;
+           
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right:10%;
+            background-color: #faeccb;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 200px;
+            z-index: 1000; 
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            color: rgb(99, 0, 0);
+            text-decoration: none;
+        }
+        .dropdown a:hover {
+            background-color:#ECCA9C;
+        }
+        .navbar-right li:hover .dropdown {
+            display: block;
+        }
+        .dropdown-menu {
+            position: absolute;
+            left:96%;
+            top: 0;
+            display: none;
+            background-color: #faeccb;
+            min-width: 200px;
+            border-radius: 5px;
+            z-index: 1001; 
+        }
+        .dropdown-item:hover .dropdown-menu {
+            display: block;
+        }
+    
+
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 30px; /* Space between cards */
+    padding: 10px;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    justify-content: center; /* Center the cards */
+    margin-top: 30px;
+    gap: 70px;
+}
+
+.container .card {
+    position: relative;
+    width: 230px; /* Set a fixed width for each card */
+    height: 320px;
+    background: #fff;
+    transition: 0.5s;
+    flex: none; /* Prevent cards from shrinking */
+    display: flex;
+    justify-content: center;
+    border: 0.3px solid rgb(204, 102, 34);
+    border-radius: 12px;
+}
+
+.container .card:hover {
+    height: 420px;
+}
+
+.container .card .imgBX {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    top: 20px;
+    border-radius: 2px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.container .card:hover .imgBX {
+    top: -100px;
+    transform: scale(0.75);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.container .card .imgBX img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .Content {
+    position: absolute;
+    top: 240px;
+    width: 100%;
+    padding: 0 20px;
+    height: 110px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.container .card:hover .Content {
+    top: 130px;
+    height: 350px;
+}
+
+.container .card .Content .details {
+    margin-bottom: 10px;
+}
+
+.container .card .Content .company-name {
+    
+    font-weight: 500;
+    
+    display: block;
+}
+
+.container .card .Content h2 {
+    font-size: 18px;
+    /* font-weight: 600; */
+    color:#d69137;
+    margin: 5px 0;
+}
+
+.container .card .Content p {
+    font-size: 0.9em;
+}
+
+.container .card .Content #button1{
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: rgb(141, 75, 31);
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+}
+.container .card .Content a{
+    display: block;
+    text-align: center;
+    margin-bottom: 18px; /* Space between Compare and Buy Now */
+    color: rgb(141, 75, 31);
+    font-weight: 500;
+   
+}
+/* Footer Styles */
+.footer {
+    background-color: #673606;
+    color: #ffffff;
+    padding: 20px 0; /* Reduced padding */
+    font-family: 'Roboto', sans-serif;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 200px; /* Adjusted height to auto */
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 200px; /* Adjusted min-width */
+    margin: 5px; /* Reduced margin */
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3 {
+    margin-bottom: 15px; /* Reduced margin */
+    font-weight: 700;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #e19e5b;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #d9534f;
+}
+
+.footer-contact a {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.footer-social {
+   
+    gap: 10px; /* Adjusted gap */
+}
+
+.social-icon {
+    color: #c68432;
+    font-size: 20px; /* Reduced font size */
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #d9534f;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px; /* Reduced padding */
+    background-color: #ab7b38;
+    margin-top: 30px; /* Adjusted margin */
+    font-size: 12px; /* Reduced font size */
+}
+
+.footer-links li {
+    padding: 0;
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body class="body">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#" class="navbar-brand">HAIRHEAVEN</a>
+        </div>
+        <div class="navbar-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <span class="search-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="list">
+                    <a href="INDEX.HTML">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="gallery.html">
+                        <span class="icon">
+                            <ion-icon name="images-outline"></ion-icon>
+                        </span>
+                        <span class="text">Gallery</span>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <a href="equipments.html">Hair Care Equipment</a>
+                            <div class="dropdown-menu">
+                                <a href="#final-dryer">Hair Dryers</a>
+                                <a href="#final-strai">Straighteners</a>
+                                <a href="#final-curler">Curling Irons</a>
+                                <a href="#final-clipper">Clippers</a>
+                                <a href="#final-brush">Hair Brushes</a>
+                                <a href="#final-scren">Scrunchies</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="product.html">Hair Care Products</a>
+                            <div class="dropdown-menu">
+                                <a href="#final-shampoo">Shampoos</a>
+                                <a href="#final-condition">Conditioners</a>
+                                <a href="#final-oil">Hair Oils</a>
+                                <a href="#final-mask">Hair Masks</a>
+                                <a href="#final-serum">Hair Serums</a>
+                                <a href=" ">Hair Sprays</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <a href="About us.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="text">About Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="CONTACT.HTML">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="text">Contact Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="blog.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="text">Blog</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="LOGIN.HTML">
+                        <span class="icon">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                        </span>
+                        <span class="text">Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+ <marquee behavior="" direction="" style=" color: rgb(124, 55, 9);
+    margin-top: 90px; margin-bottom: -150px; font-size: 22px; font-weight: 600;">HAIR CARE PRODUCTS</marquee>
+     <img src="google gallery images2.jpg" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="margin-top: 90px; width: 100%; "> 
+     <div class="container" id="final-shampoo">
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (1).jpeg" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Shampoo for Longer <br> Stronger Hair</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,499</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Hair growth shampoo is formulated to nourish and strengthen hair, promoting healthier, thicker growth.</p>
+                <a href="hairimage5.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (4).jpg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Kérastase Gentle  <br>Strengthening Shampoo </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,699</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Gentle Strengthening & Anti-Breakage Conditioner, For Damaged Lengths & Ends, With Vita-Ciment Advance, Ciment Anti-Usure,</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (2).jpg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'oreal Paris Elvive  <br>Dream Lengths Shampoo </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,299</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">L'oreal Paris Elvive Dream Lengths Shampoo  12.6 Fl Oz Each L'oreal Paris Elvive Dream Lengths Shampoo 12.6 Fl Oz Each New.</p>
+                <a href="hairimage7.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="shampooo (3).jpeg" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Sunsilk Long And <br> Healthy Growth Shampoo</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,599</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Infused with biotin, a known hair growth vitamin that helps grow hair amazingly long upto 1. 3cm per month </p>
+                <a href="hairimage8.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-condition">
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditionar1 (1)" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);"> Conditioner for Longer <br> Stronger Hair</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,399</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Use Conditioner if you want to supercharge your hair growth for maximum length in minimal time. </p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditionar1 (2).jpg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Pantene Repair Protect  <br>Hair Conditioner</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,899</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Pantene Repair & Protect Hair Conditioner 350ml Pantene Repair Protect Hair Conditioner 350Ml Available At Superdrug Today</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditioner 4.avif" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'oreal Paris Elvive  <br>Dream Lengths Conditionar </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,599</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">L'oreal Paris Elvive Dream Lengths Conditioner 12.6 Fl Oz Each L'oreal Paris Elvive Dream Lengths Conditioner 12.6 Fl Oz Each New.</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="conditionar1 (3).jpeg" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Sunsilk Long And <br> Healthy Growth Conditionar</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1.990</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Infused with biotin, a known hair growth vitamin that helps grow hair amazingly long upto 1. 3cm per month </p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-oil">
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair oil image.webp" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Gisou Honey Infused  <br>Hair Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> This multipurpose product works for pre-styling and finishing, as a hair mask or an overnight treatment –</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="oil hair.jpg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Mielle <br> Hair Strengthening Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,199</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Our nutrient-rich, biotin-infused treatment can be used as part of your everyday hair care routine  prevent damage for strong</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="oil hair 2.jpg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">honey Deep Moist  <br>Hair Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,699</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">&honey Deep Moist Hair Oil Step3.0 (Moist Shine) 100ml - Damask Rose Honey Sent (Green Tea Set) : Beauty & Personal Care</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair mask 1 (4).webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Vatika Almond Enriched <br> Hair Oil</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,199</h2>
+                </div>
+                <p style="text-align: center; padding: 15px;">Dabur Vatika Almond Enriched Hair Oil 200ml | Multivitamis+ - Pack Of 2</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-mask">
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair mask 1 (4).jpeg" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'Oreal Elvive Dream <br> Lengths Hair Mask </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 2,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">rescue locks that feel damaged with our saviour hair mask. Enriched with a cocktail of Keratin, Vitamins and Castor Oil.</p>
+               <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+               <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="mehak.webp" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Mielle Organics Strength <br> Growth  Hair Mask</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,899</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Cruelty-free- Mielle Organics is a black owned hair care and beauty brand that creates healthy pro</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="mehak mask.webp" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Natural Riches <br>Keratin Hair Mask </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,699</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Natural Riches Keratin hair mask is a deep conditioning pack, formulated with natural and nourishing keratin. It works to restore  your hair</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+               <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="mask hair.webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Eazicare Transforming <br> Hair Mask</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 2,399</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Mask-Querade Transforming Hair Mask hair treatment that restores and rejuvenates dehydrated and damaged hair. </p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+               <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-serum">
+        <div class="card">
+            <div class="imgBX">
+                <img src="serum.webp" alt="Image 1">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Hydrating scalp <br>Hair Serum </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">lightweight serum that hydrates your hair + scalp. Infused with Hyaluronic Acid and Glycolic Acid,</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+               <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="hair serum1 (1).jpeg" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">divi Hair <br>Scalp Serum</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,299</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Divi’s hair serum is formulated to create a healthy scalp environment for your hair's natural growth cycle.</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="serum1.jpg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">L'oreal Paris Oil  <br>Hair Serum</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,899</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">L'oreal Paris Extraordinary Oil Hair Serum  Apply evenly through the lengths and ends on wet or dry hair. VERSATILE USE-</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="serum2.webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Genesis Anti-Breakage <br> Hair Serum</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Daily anti-hair-fall fortifying serum for weakened hair, prone to falling. The serum improves hair resistance to minimize hair-fall </p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="final-spray">
+        <div class="card" >
+            <div class="imgBX">
+                <img src="hair spray1 (1).jpeg" alt="Image 1">
+            </div>
+            <div class="Content" id="detail-spray1">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);"> Essential Hair <br> Repair Spray </h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,299</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">water-based botanical styler for all types of textured hair with hydrating and protective powers.</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="spray.webp" alt="Image 2">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Tresemme Heat Defence <br> Hair Spray</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,599</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;">Tresemme Care & Protect Heat Defence Spray is designed to help protect against damage from harsh temperatures </p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="spray2.jpeg" alt="Image 3">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Amika Brooklyn Bombshell <br>Hair Spray</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,999</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Amika Brooklyn Bombshell Blowout Spray. Lightweight mist adds volume, texture & body without buildup or crunchiness.</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBX">
+                <img src="spray7.webp" alt="Image 4">
+            </div>
+            <div class="Content">
+                <div class="details">
+                    <h2 class="company-name" style="font-size: 18px; color: rgb(134, 57, 5);">Glow Shine <br> Hair Spray</h2>
+                    
+                    <h2 style="margin-top: 14px;" >PKR 1,399</h2>
+                </div>
+                <p style="text-align: justify; padding: 15px;"> Glow Shine Protect Heat Defence Spray is designed to help protect against damage from harsh temperatures</p>
+                <a href="hairimage6.html" class="compare-link" data-product-id="dryer1">Learn more</a>
+                <a href="LOGIN.HTML" id="button1">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Hair Heaven is dedicated to providing you with the best haircare products and solutions. Our mission is to help you achieve healthy and beautiful hair with our top-rated natural products.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="INDEX.HTML">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="LOGIN.HTML">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@hairheaven.com">info@hairheaven.com</a></p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Haircare Lane, Beauty City, BC 12345</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#" class="social-icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hair Heaven. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+
+    </body>
+</html>

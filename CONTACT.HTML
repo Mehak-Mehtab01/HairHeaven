@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Heaven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* Contact Us Section */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-us {
+            background: url('your-background-image.jpg') no-repeat center center/cover;
+            padding: 60px 20px;
+            color: #633106;
+            text-align: left;
+            margin-top: 50px; /* Adjust for fixed navbar */
+            animation: fadeIn 2s ease-in-out;
+            margin-left: 120px;
+        }
+
+        .contact-heading {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease-in-out;
+            margin-left: 70px;
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: 8px;
+        }
+
+        .contact-form {
+            background: rgba(215, 144, 73, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+            width: 50%;
+            margin-right: -20px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1.2em;
+            color: #8C3D09;
+            margin-bottom: 5px;
+            margin-left: 70px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 80%;
+            padding: 10px;
+            border: 2px solid #8C3D09;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+            background: #fff;
+            margin-left: 50px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #A56B3A;
+        }
+
+        .contact-form button {
+            background: #8C3D09;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-left: 50px;
+        }
+
+        .contact-form button:hover {
+            background: #A56B3A;
+            transform: scale(1.05);
+        }
+
+        .swing-container img {
+            width: 1100px;
+            height: 500px;
+            margin-top: -25px;
+        }
+
+        .swing-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 45%; /* Adjust width as needed */
+            overflow: hidden;
+            height: 100%; /* Adjust height as needed */
+            margin-top: -130px;
+        }
+
+        .swinging-telephone {
+            width: 150px; /* Adjust size as needed */
+            animation: swing 2s infinite ease-in-out;
+            transform-origin: top center;
+            margin-top: -5px;
+        }
+
+        .notification {
+            color: red;
+            font-size: 1em;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .error {
+            border-color: red !important;
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-15deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body id="homepage">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img id="logo" src="" alt="">
+            <a href="#" class="navbar-brand">HAIRHEAVEN</a>
+        </div>
+        <div class="navbar-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <span class="search-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="list">
+                    <a href="INDEX.HTML">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="gallery.html">
+                        <span class="icon">
+                            <ion-icon name="images-outline"></ion-icon>
+                        </span>
+                        <span class="text">Gallery</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="About us.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="text">About Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="CONTACT US .HTML">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="text">Contact Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="blog.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="text">Blog</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="LOGIN.HTML">
+                        <span class="icon">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                        </span>
+                        <span class="text">Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Us Section -->
+    <section class="contact-us">
+        <div class="container">
+            <h1 class="contact-heading"><i>Contact Us</i></h1>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <div id="notification" class="notification"></div> <!-- Notification div -->
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="button" onclick="validateForm()">Send Message</button>
+                    <!-- Adjusted button type -->
+                </div>
+                <div class="swing-container">
+                    <img src="MOV_IMG-removebg-preview.png" alt="Swinging Telephone" class="swinging-telephone">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Hair Heaven is dedicated to providing you with the best haircare products and solutions. Our mission is to help you achieve healthy and beautiful hair with our top-rated products and expert advice.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="INDEX.HTML">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="CONTACT.HTML">Contact Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="blog.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: info@hairheaven.com</p>
+                <p>Phone: +123 456 7890</p>
+                <p>Address: 123 Hair Heaven St, Hairland, HL 12345</p>
+            </div>
+            <div class="footer-follow">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-pinterest"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Hair Heaven. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+       
+       function validateForm() {
+    // Get form elements
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    const notification = document.getElementById('notification');
+
+    // Reset styles and notification
+    name.classList.remove('error');
+    email.classList.remove('error');
+    message.classList.remove('error');
+    notification.style.display = 'none';
+
+    let valid = true;
+    let errorMessage = '';
+
+    // Check if fields are filled
+    if (name.value.trim() === '') {
+        name.classList.add('error');
+        valid = false;
+        errorMessage += 'Please fill in your name.<br>';
+    }
+
+    if (email.value.trim() === '') {
+        email.classList.add('error');
+        valid = false;
+        errorMessage += 'Please fill in your email.<br>';
+    } else if (!email.value.includes('@')) {
+        email.classList.add('error');
+        valid = false;
+        errorMessage += 'Please enter a valid email address.<br>';
+    }
+
+    if (message.value.trim() === '') {
+        message.classList.add('error');
+        valid = false;
+        errorMessage += 'Please fill in your message.<br>';
+    }
+
+    // Show notification if form is not valid
+    if (!valid) {
+        notification.innerHTML = errorMessage;
+        notification.style.display = 'block';
+    } else {
+        // Form is valid
+        alert('Message sent!');
+        // Clear form fields
+        name.value = '';
+        email.value = '';
+        message.value = '';
+    }
+}
+
+    </script>
+</body>
+</html>

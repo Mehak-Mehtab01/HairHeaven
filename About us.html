@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - HAIRHEAVEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background image only for the homepage */
+        body#homepage::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img1.3.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            opacity: 0.5; /* Adjust this value to control the transparency of the image */
+            z-index: -1; /* Ensure the overlay stays behind the content */
+            background-attachment: fixed; /* Ensure background scrolls with the page */
+            background-color: #f6f5f7;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none; /* Remove background */
+            padding: 15px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for depth */
+            position: fixed;
+            width: 97%; /* Ensure full width */
+            top: 0;
+            z-index: 1000;
+            border-radius: 10px; /* Rounded corners */
+            backdrop-filter: blur(8px); /* Blurring effect */
+            text-shadow: 2px 2px 4px rgba(74, 34, 5, 0.6); /* Softer shadow for text clarity */
+        }
+
+        .navbar-left .navbar-brand {
+            color: rgba(140, 61, 9, 1); /* Saddle Brown */
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .navbar-center .search-bar {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .search-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 550px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border-radius: 20px;
+            border: 2px solid rgba(140, 61, 9, 1); /* Brown border */
+            font-size: 16px;
+            width: 100%;
+            background-color: #f6f4f1; /* Wheat */
+            color: rgba(140, 61, 9, 1); /* Saddle Brown */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        .search-bar input:focus {
+            background-color: #fff; /* White on focus */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow on focus */
+            outline: none; /* Remove default focus outline */
+        }
+
+        .search-bar .search-icon {
+            position: absolute;
+            right: 15px; /* Adjust as needed */
+            font-size: 20px; /* Adjust size if needed */
+            color: rgba(140, 61, 9, 1); /* Saddle Brown */
+            transition: color 0.3s ease; /* Smooth transition */
+        }
+
+        .search-bar input:focus + .search-icon {
+            color: #3a3a3a; /* Change icon color on focus */
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-right .list {
+            margin-left: 20px; /* Adjust spacing as needed */
+            position: relative; /* To position text absolutely */
+        }
+
+        .navbar-right .list a {
+            display: flex;
+            flex-direction: column; /* Stack icon and text vertically */
+            align-items: center;
+            color: rgba(140, 61, 9, 1); /* Saddle Brown */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out, transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+        }
+
+        .navbar-right .list a:hover {
+            color: rgba(140, 61, 9, 1); /* Brown on hover */
+            transform: translateY(-8px); /* Slight lift effect on hover */
+        }
+
+        .navbar-right .list .icon {
+            margin-bottom: 5px; /* Space between icon and text */
+            font-size: 24px; /* Adjust size if needed */
+            transition: transform 0.3s ease; /* Smooth icon transition */
+        }
+
+        .navbar-right .list a:hover .icon {
+            transform: scale(1.2); /* Slightly enlarge icon on hover */
+        }
+
+        .navbar-right .list .text {
+            font-size: 14px; /* Adjust font size if needed */
+            opacity: 0; /* Hide text by default */
+            transition: opacity 0.3s ease; /* Smooth transition */
+        }
+
+        .navbar-right .list a:hover .text {
+            opacity: 1; /* Show text on hover */
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .about-video img {
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .about-text h2 {
+            color: rgba(140, 61, 9, 1);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .about-gallery {
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .about-gallery h2 {
+            color: rgba(140, 61, 9, 1);
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-left: 80px;
+           
+        }
+
+        .gallery-grid img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            background-color: #673606;
+            color: #ffffff;
+            padding: 20px 0;
+            font-family: 'Roboto', sans-serif;
+            margin-top: -50px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+           
+        }
+
+        .footer-about,
+        .footer-links,
+        .footer-contact,
+        .footer-social {
+            flex: 1;
+            min-width: 200px;
+            margin: 5px;
+        }
+
+        .footer-about h3,
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-social h3 {
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #e19e5b;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #d9534f;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .footer-social ul li {
+            margin-right: 10px;
+        }
+
+        .footer-social ul li a {
+            text-decoration: none;
+            color: #e19e5b;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social ul li a:hover {
+            color: #d9534f;
+        }
+
+        .footer-container .footer-about,
+        .footer-container .footer-links,
+        .footer-container .footer-contact,
+        .footer-container .footer-social {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar-left,
+            .navbar-center,
+            .navbar-right {
+                margin-bottom: 10px;
+            }
+
+            .navbar-center .search-bar {
+                width: 100%;
+            }
+
+            .navbar-right ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar-right .list {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .about-text {
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .about-gallery {
+                margin-top: 20px;
+            }
+
+            .gallery-grid img {
+                width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .about-us {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.header-img {
+    flex: 1;
+    padding: 35px;
+    transition: transform 0.5s ease-in-out;
+    margin-top: 20px;
+}
+
+.header-img img {
+    width: 450px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: -17px;
+   
+}
+
+.header-img:hover {
+    transform: scale(1.05);
+}
+
+.header-img.left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.header-img.center {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header-img.right {
+    animation: slideInRight 1s ease-in-out;
+}
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    background-color: #ffffff; /* Adjust background color if needed */
+   /* Optional border */
+    padding: 20px; /* Adjust padding if needed */
+    text-align: center; /* Center text inside the div */
+    width: 50%; /* Control the width of the content */
+    max-width: 350px; /* Limit the maximum width */
+    margin: 20px; /* Center the div horizontally within its parent */
+
+}
+.map-info-section {
+    padding: 0; /* Remove padding */
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+.map-section {
+    display: flex;
+    padding: 0; /* Remove padding */
+    background-color: rgba(255, 255, 255, 0.9); /* Light grey background */
+    margin-top: 170px;
+}
+
+.map-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Space between text and map */
+    align-items: flex-start; /* Align items at the top */
+    flex-direction: row-reverse; /* Reverse the order of flex items */
+    margin-top: 0; /* Remove margin */
+}
+
+.map-text-container {
+    display: flex;
+    flex-direction: column; /* Stack text sections vertically */
+    gap: 20px; /* Space between text sections */
+    width: 40%; /* Adjust as needed */
+    
+}
+
+.map-text, .map-text2 {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-left: 20px;
+    font-size: larger;
+}
+
+.map-text h2, .map-text2 h3 {
+    color: #793907; /* Dark Brown */
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+
+
+.map-text p, .map-text2 p {
+    color: #555;
+    font-size: 16px;
+}
+
+.map {
+    position: relative;
+    width: 60%; /* Adjust as needed */
+}
+
+.map img {
+    width: 100%; /* Ensure the image spans the full width of its container */
+    height: auto;
+    margin-top: -240px; /* Further reduce the top margin */
+}
+
+.branch-logos {
+    position: absolute;
+    top: 0; /* Align with the top of the map */
+    left: 0; /* Align with the left of the map */
+    width: 100%; /* Cover the entire map area */
+    height: 100%; /* Cover the entire map area */
+    pointer-events: none; /* Ensure map interactions are not blocked by logos */
+}
+
+.branch-logo {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
+.branch-logo:nth-of-type(1) {
+    top: 50%; /* Adjust position inside the map */
+    left: 30%; /* Adjust position inside the map */
+}
+
+.branch-logo:nth-of-type(2) {
+    top: 60%; /* Adjust position inside the map */
+    left: 50%; /* Adjust position inside the map */
+}
+
+.branch-logo:nth-of-type(3) {
+    top: 60%; /* Adjust position inside the map */
+    left: 20%; /* Adjust position inside the map */
+}
+
+.branch-logo:nth-of-type(4) {
+    top: 50%; /* Adjust position inside the map */
+    left: 70%; /* Adjust position inside the map */
+}
+
+.branch-logo:nth-of-type(5) {
+    top: 50%; /* Adjust position inside the map */
+    left: 10%; /* Adjust position inside the map */
+}
+
+.branch-logo:nth-of-type(6) {
+    top: 70%; /* Adjust position inside the map */
+    left: 40%; /* Adjust position inside the map */
+}
+
+.branch-logo {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: auto; /* Maintains aspect ratio */
+}
+
+.map-text{
+
+    background-color: #e7b472;
+    font-size: 48px;
+    font-weight: 900;
+}
+.map-text2{
+  background-color:  #e7b472; 
+
+}
+
+.map-text2 ion-icon {
+    font-size: 1.2em;
+    color: #c06016; /* Using the orange color you provided */
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+
+
+
+    </style>
+</head>
+<body id="">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#" class="navbar-brand">HAIRHEAVEN</a>
+        </div>
+        <div class="navbar-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <span class="search-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="list">
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="gallery.html">
+                        <span class="icon">
+                            <ion-icon name="images-outline"></ion-icon>
+                        </span>
+                        <span class="text">Gallery</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="About us.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="text">About Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="CONTACT.HTML">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="text">Contact Us</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="blog.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="text">Blog</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="login.html">
+                        <span class="icon">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                        </span>
+                        <span class="text">Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <section class="about-us">
+        <div class="about-header">
+            <div class="header-img left">
+                <img src="ABT CH 1.jpg" alt="About Us Image 1">
+            </div>
+            <div class="header-img center">
+                <img src="ABT CH3.jpg" alt="About Us Image 2">
+            </div>
+            <div class="header-img right">
+                <img src="ABT CH2.jpg" alt="About Us Image 3">
+            </div>
+        </div>
+       
+    </section>
+
+    
+<section>
+        <div class="about-content">
+            <div class="about-video">
+          
+               <img src="herbal.jpg" alt="">
+            </div>
+            <div class="about-text">
+                <h2>OUR JOURNEY</h2>
+                <p>Welcome to HAIRHEAVEN, your one-stop destination for premium hair care solutions. At HAIRHEAVEN, we believe that beautiful, healthy hair starts with nature. Our mission is to provide you with the finest herbal products that nourish, protect, and enhance your hair naturally..</p>
+                
+                <h2>OUR HERBAL PRODUCTS</h2>
+                <p>At HAIRHEAVEN, we take pride in our range of herbal hair care products. Our selection includes: <br>
+
+                    Herbal Shampoos: Infused with the goodness of natural herbs, our shampoos gently cleanse your hair while promoting growth and strength. <br>
+                    Nourishing Conditioners: Our conditioners are designed to deeply moisturize and detangle, leaving your hair soft, shiny, and manageable. <br>
+                    Revitalizing Hair Oils: Enriched with essential oils and herbal extracts, our hair oils nourish the scalp, reduce hair fall, and enhance hair growth. <br>
+                    Hair Masks and Treatments: Specially formulated to repair and rejuvenate, our hair masks and treatments provide intense hydration and restore damaged hair.</p>
+
+                    <h2>OUR VISION</h2>
+                    <P>Our vision is to empower individuals to embrace their natural beauty through holistic hair care. We are committed to continuous innovation and research to bring you the latest advancements in natural hair care.</P>
+                    <h2>Customer Satisfaction</h2>
+                    <p>At HAIRHEAVEN, customer satisfaction is at the heart of everything we do. We strive to provide an exceptional shopping experience with top-notch customer service. Our knowledgeable team is always ready to assist you with personalized hair care advice and recommendations.</p>
+            </div>
+        </section>
+
+        <section class="about-us">
+            <div class="about-header">
+                <div class="header-img left">
+                    <img src="ABT EQ 1.jpg" alt="About Us Image 1">
+                </div>
+                <div class="header-img center">
+                    <img src="ABT EQ 2.jpg" alt="About Us Image 2">
+                </div>
+                <div class="header-img right">
+                    <img src="ABT EQ 3.jpg" alt="About Us Image 3">
+                </div>
+            </div>
+           
+        </section>
+
+
+
+        <div class="about-gallery">
+            <h2></h2>
+            <div class="gallery-grid">
+                <img src="about us 2.jpg" alt="Hair Care Image 1">
+                <div class="text-content">
+                    <h2>ABOUT HAIR EQUIPMENTS</h2>
+                   <p>At HAIRHEAVEN, we take pride in offering only the finest  hair care equipment to ensure that your hair receives the best treatment possible. Our collection features an exclusive range of high-quality, branded tools designed for professionals and enthusiasts alike.
+
+                            Branded Excellence
+                            
+                            We partner with leading brands renowned for their innovation and commitment to quality. Each piece of equipment we offer is crafted with precision and care, reflecting our dedication to excellence. From advanced hair dryers to state-of-the-art straighteners, our brands are trusted by experts around the world. <br>
+                            Professional Hair Dryers: Equipped with advanced technology for fast, efficient drying and styling.
+Precision Straighteners: Designed for smooth, sleek results with adjustable heat settings. <br>
+Versatile Curling Irons: Ideal for creating beautiful curls and waves with ease. <br>
+High-Performance Brushes: Crafted for optimal detangling and styling.</p>
+                </div>
+                <img src="aboutus22.jpg" alt="Hair Care Image 3">
+            </div>
+        </div>
+        
+            </div>
+        </div>
+    </section>
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-text-container">
+                <div class="map-text">
+                    <h2>OUR GLOBAL PRESENCE <BR></BR>40+COUNTRIES</h2>
+                    <p>We are proud to have branches around the world. Find us in these locations and more!</p>
+                </div>
+                <div class="map-text2">
+                    <h3>OUR WORLDWIDE FOOTPRINT!</h3><br>
+                    <p><ion-icon name="globe-outline"></ion-icon><b> 6 
+                        Continents</b> <br>
+                        <ion-icon name="location-outline"></ion-icon><b>100+ 
+                        Distribution Centers</b></p>
+                </div>
+            </div>
+            <div class="map">
+                <img src="maps.png" alt="Map">
+                <div class="branch-logos">
+                    <img src="web logo.png" alt="Branch 1" class="branch-logo"  style="width: 50px; height: 50px;">
+                    <img src="web logo.png" alt="Branch 2" class="branch-logo" style="width: 50px; height: 50px;">
+                    <img src="web logo.png" alt="Branch 3" class="branch-logo"  style="width: 50px; height: 50px;" >
+                    <img src="web logo.png" alt="Branch 4" class="branch-logo"  style="width: 50px; height: 50px;" >
+                    <img src="web logo.png" alt="Branch 5" class="branch-logo"  style="width: 50px; height: 50px;" >
+                    <img src="web logo.png" alt="Branch 6" class="branch-logo"  style="width: 50px; height: 50px;" >
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Hair Heaven is dedicated to providing you with the best haircare products and solutions. Our mission is to help you achieve healthy and beautiful hair with our top-rated natural products.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="INDEX.HTML">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@hairheaven.com">info@hairheaven.com</a></p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Haircare Lane, Beauty City, BC 12345</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#" class="social-icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#" class="social-icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hair Heaven. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
